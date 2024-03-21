@@ -9,8 +9,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 
 export class BalanceComponent {
-
-  @Input() balance: number = 0;
+  @Input() balance?: number;
   @Output() withdraw: EventEmitter<number> = new EventEmitter<number>();
   @Output() deposit: EventEmitter<number> = new EventEmitter<number>();
 }
