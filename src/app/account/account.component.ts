@@ -16,8 +16,9 @@ interface Account{
 })
 
 export class AccountComponent {
-  @Input() balance: number | undefined;
+  @Input() balance: number = 0;
   @Output() withdraw: EventEmitter<number> = new EventEmitter<number>();
+  @Output() deposit: EventEmitter<number> = new EventEmitter<number>();
 
   initialAccount: Account = {
     name: 'Savings Account',
