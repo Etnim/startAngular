@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {BalanceComponent} from "../balance/balance.component";
 
 
 interface Account{
@@ -9,11 +10,17 @@ interface Account{
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [],
+  imports: [BalanceComponent],
   templateUrl: './account.component.html',
-  styleUrl: './account.component.css'
+  styleUrl: './account.component.scss'
 })
 
 export class AccountComponent {
+  @Input() balance: number | undefined;
+  @Output() withdraw: EventEmitter<number> = new EventEmitter<number>();
 
+  initialAccount: Account = {
+    name: 'Savings Account',
+    balance: 100
+  };
 }
