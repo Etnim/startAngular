@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-balance',
@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
   templateUrl: './balance.component.html',
   styleUrl: './balance.component.css'
 })
+
 export class BalanceComponent {
 
+
+  @Input() balance: number = 0;
+  @Output() withdraw: EventEmitter<number> = new EventEmitter<number>();
+  @Output() deposit: EventEmitter<number> = new EventEmitter<number>();
 }
